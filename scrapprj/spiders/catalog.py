@@ -21,19 +21,11 @@ class catalog(scrapy.Spider):
             num = int(item.extract())
             if(num > self.lastpage):
                 self.lastpage = num
-        f = open('log1.txt', 'a')
-        f.write(str(self.lastpage)+'\n')
         pageurl = '?page='
         for pagenum in range(1, self.lastpage+1):
-            f.write(response.url+'?page='+str(pagenum)+'\n')
             yield response.follow(response.url+pageurl+str(pagenum), callback=self.parse_page)
-        f.close()
 
     def parse_page(self, response):
-
-        f2 = open('log2.txt', 'a')
-        f2.write('parse_page executed for '+response.url+'\n')
-        f2.close()
         for item in response.xpath('//article[@class="catalog-product-item"]'):
             cur = Product()
             cur['name'] = item.xpath('./@data-title').extract()
