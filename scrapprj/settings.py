@@ -66,6 +66,7 @@ ROBOTSTXT_OBEY = False
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     'scrapprj.pipelines.MongoProductPipeline': 300,
+    # 'scrapprj.pipelines.ProductPipeline': 300
 }
 
 MONGODB_SERVER = "localhost"

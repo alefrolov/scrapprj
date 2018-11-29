@@ -18,7 +18,7 @@ class catalog(scrapy.spiders.CrawlSpider):
         r'https:\/\/shop\.vostok\.ru\/catalog\/((odezhda)|(drugoe)|(obuv)|(zaschita-ruk)|(sredstva-zaschity))\/(\?page=\d+)+'
     ]), callback='parse_page', follow=True),
         Rule(LinkExtractor(allow=[
-            r'https:\/\/shop\.vostok\.ru\/catalog\/((odezhda)|(drugoe)|(obuv)|(zaschita-ruk)|(sredstva-zaschity))\/(\?page=\d+)*'
+            r'https:\/\/shop\.vostok\.ru\/catalog\/((odezhda)|(drugoe)|(obuv)|(zaschita-ruk)|(sredstva-zaschity))\/$'
         ]), follow=True)
     ]
 
